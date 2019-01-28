@@ -1,9 +1,11 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.utilproject.wy"
+//        applicationId "com.utilproject.wy"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -16,6 +18,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
+    publish{
+        repoName="maven"//仓库名
+        userOrg = 'wangyu40234'      //bintray注册的用户名
+        groupId = 'maven_wy'         //compile引用时的第1部分groupId
+        artifactId = 'utilproject'     //compile引用时的第2部分项目名
+        publishVersion = '1.0.0'    //compile引用时的第3部分版本号
+        desc = 'this is private project'//d项目描述
+        repoName="maven" //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
+        website = 'https://github.com/wy402349239/UtilProject' //github 托管地址
+        //   terminal命令  ./gradlew clean build bintrayUpload -PbintrayUser=wangyu40234 -PbintrayKey=cc090a0aca674dda4f1718c186c90d36652ce057 -PdryRun=false
+    }
 }
 
 dependencies {
@@ -25,4 +41,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
