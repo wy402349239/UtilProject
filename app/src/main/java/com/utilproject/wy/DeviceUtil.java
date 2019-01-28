@@ -3,6 +3,7 @@ package com.utilproject.wy;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.net.wifi.WifiInfo;
@@ -29,11 +30,12 @@ public class DeviceUtil {
 
     /**
      * 获取屏幕宽度
+     *
      * @param context 上下文
      * @return 屏幕宽度
      */
-    public static int getScreenWidth(Context context){
-        if (context == null){
+    public static int getScreenWidth(Context context) {
+        if (context == null) {
             return 0;
         }
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -42,11 +44,12 @@ public class DeviceUtil {
 
     /**
      * 获取屏幕高度
+     *
      * @param context 上下文
      * @return 屏幕高度
      */
-    public static int getScreenHeight(Context context){
-        if (context == null){
+    public static int getScreenHeight(Context context) {
+        if (context == null) {
             return 0;
         }
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -159,6 +162,7 @@ public class DeviceUtil {
 
     /**
      * 判断是否为流海屏
+     *
      * @param act 上下文
      * @return 是否为流海屏
      */
@@ -255,6 +259,66 @@ public class DeviceUtil {
 
         } finally {
             return ret;
+        }
+    }
+
+    /**
+     * 修改状态栏背景
+     *
+     * @param act 上下文
+     * @param id  资源ID
+     */
+    public static void setStatuResouce(final Activity act, final int id) {
+        if (act == null || act.isFinishing()) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            View decorView = act.getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            act.getWindow().setStatusBarColor(0xFF24CCFF);//必须设置颜色,不然下面的代码无效
+            act.getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    int identifier = act.getResources().getIdentifier("statusBarBackground", "id", "android");
+                    View statuBar = act.getWindow().findViewById(identifier);
+                    if (statuBar != null) {
+                        statuBar.setBackgroundColor(Color.TRANSPARENT);
+                        statuBar.setBackgroundResource(id);
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 修改状态栏背景
+     *
+     * @param act   上下文
+     * @param color 颜色
+     */
+    public static void setStatuColor(final Activity act, final int color) {
+        if (act == null || act.isFinishing()) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            View decorView = act.getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            act.getWindow().setStatusBarColor(0xFF24CCFF);//必须设置颜色,不然下面的代码无效
+            act.getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                @Override
+                public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                    int identifier = act.getResources().getIdentifier("statusBarBackground", "id", "android");
+                    View statuBar = act.getWindow().findViewById(identifier);
+                    if (statuBar != null) {
+                        statuBar.setBackgroundResource(0);
+                        statuBar.setBackgroundColor(color);
+                    }
+                }
+            });
         }
     }
 }
