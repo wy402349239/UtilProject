@@ -26,7 +26,7 @@ android {
         userOrg = 'wangyu40234'      //bintray注册的用户名
         groupId = 'maven_wy'         //compile引用时的第1部分groupId
         artifactId = 'utilproject'     //compile引用时的第2部分项目名
-        publishVersion = '1.0.3'    //compile引用时的第3部分版本号
+        publishVersion = '1.0.4'    //compile引用时的第3部分版本号
         desc = 'this is private project'//d项目描述
         repoName="maven" //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
         website = 'https://github.com/wy402349239/UtilProject' //github 托管地址
