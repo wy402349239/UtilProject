@@ -1,6 +1,5 @@
 package com.utilproject.wy;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -326,6 +325,7 @@ public class DeviceUtil {
 
     /**
      * 获取屏幕原始尺寸高度，包括虚拟按键NavigationBar
+     *
      * @param context
      * @return 原始尺寸高度
      */
@@ -390,6 +390,7 @@ public class DeviceUtil {
 
     /**
      * 获取状态栏高度
+     *
      * @param context 上下文对象
      * @return 状态栏高度
      */
