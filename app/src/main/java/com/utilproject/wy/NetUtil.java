@@ -107,7 +107,7 @@ public class NetUtil {
      * @param context 上下文对象
      * @return WiFi Mac地址
      */
-    private static String getMacAddrNew(Context context) {
+    public static String getMacAddrNew(Context context) {
         if (Build.VERSION.SDK_INT >= 23) {
             String mac = getWifiMacAddressForAndroid23();
             if (TextUtils.isEmpty(mac)) {
@@ -143,7 +143,7 @@ public class NetUtil {
      * @param manager manager
      * @return Mac地址
      */
-    private static String tryGetMAC(WifiManager manager) {
+    public static String tryGetMAC(WifiManager manager) {
         try {
             WifiInfo wifiInfo = manager.getConnectionInfo();
             if (wifiInfo == null || TextUtils.isEmpty(wifiInfo.getMacAddress())) {
@@ -161,7 +161,7 @@ public class NetUtil {
      * Android 6.0上增强了数据保护，取到的MAC地址是02:00:00:00:00:00
      * http://stackoverflow.com/questions/31329733/how-to-get-the-missing-wifi-mac-address-on-android-m-preview
      */
-    private static String getWifiMacAddressForAndroid23() {
+    public static String getWifiMacAddressForAndroid23() {
         try {
             String interfaceName = "wlan0";
             List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -195,7 +195,7 @@ public class NetUtil {
      * @param context 上下文对象
      * @return 外网地址
      */
-    private static String generateIPAddress(Context context) {
+    public static String generateIPAddress(Context context) {
         NetworkInfo info = ((ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
         if (info != null && info.isConnected()) {
@@ -233,7 +233,7 @@ public class NetUtil {
      * @param ip
      * @return ip地址
      */
-    private static String intIP2StringIP(int ip) {
+    public static String intIP2StringIP(int ip) {
         return (ip & 0xFF) + "." +
                 ((ip >> 8) & 0xFF) + "." +
                 ((ip >> 16) & 0xFF) + "." +
