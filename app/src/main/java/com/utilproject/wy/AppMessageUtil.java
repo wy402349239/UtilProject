@@ -32,23 +32,23 @@ public class AppMessageUtil {
         return versionName;
     }
 
-    /**
-     * 获取当前APP版本号
-     * @param context 上下文对象
-     * @return APP版本号
-     */
-    public static String getAppVersionCode(Context context) {
-        String versionCode = "";
-        try {
-            PackageManager pm = context.getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
-            versionCode = String.valueOf(pi.versionCode);
-            if (TextUtils.isEmpty(versionCode)) {
-                return "";
-            }
-        } catch (Exception e) {
-            Log.e("VersionInfo", "Exception", e);
-        }
-        return versionCode;
-    }
+//    /**
+//     * 获取当前APP版本号
+//     * @param context 上下文对象
+//     * @return APP版本号
+//     */
+//    public static String getAppVersionCode(Context context) {
+//        String versionCode = "";
+//        try {
+//            PackageManager pm = context.getPackageManager();
+//            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+//            versionCode = String.valueOf(pi.versionCode);
+//            if (TextUtils.isEmpty(versionCode)) {
+//                return "";
+//            }
+//        } catch (Exception e) {
+//            Log.e("VersionInfo", "Exception", e);
+//        }
+//        return versionCode;
+//    }
 }
