@@ -7,7 +7,7 @@ import android.graphics.Color
 import android.os.Build
 import android.text.TextUtils
 import android.view.View
-import com.utilproject.wy.SystemPropertiesProxy
+import com.util.kt.wy.SystemPropertiesProxy
 
 object StatuBarUtil {
 
@@ -77,7 +77,7 @@ object StatuBarUtil {
     /**
      * 判断小米流海屏
      */
-    fun hasNotchAtXiaoMi(act: Activity?): Boolean {
+    fun hasNotchAtXiaoMi(act: Activity): Boolean {
         val s = SystemPropertiesProxy.get(act, "ro.miui.notch", "0")
         return TextUtils.equals(s, "1")
     }

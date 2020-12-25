@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager
 import android.os.Build
 import android.telephony.TelephonyManager
 import android.text.TextUtils
-import com.utilproject.wy.NetUtilJava
 import java.net.Inet4Address
 import java.net.NetworkInterface
 import java.net.SocketException
@@ -311,14 +310,14 @@ object NetUtil {
      */
     fun getNetTypeString(context: Context): String {
         var netType = "unknown"
-        val connectionType = NetUtilJava.getConnectionType(context)
-        if (connectionType == NetUtilJava.TYPE_2G) {
+        val connectionType = getConnectionType(context)
+        if (connectionType == TYPE_2G) {
             netType = "2g"
-        } else if (connectionType == NetUtilJava.TYPE_3G) {
+        } else if (connectionType == TYPE_3G) {
             netType = "3g"
-        } else if (connectionType == NetUtilJava.TYPE_4G) {
+        } else if (connectionType == TYPE_4G) {
             netType = "4g"
-        } else if (connectionType == NetUtilJava.TYPE_WIFI) {
+        } else if (connectionType == TYPE_WIFI) {
             netType = "wifi"
         }
         return netType
@@ -331,14 +330,14 @@ object NetUtil {
      */
     fun getNetTypeInt(context: Context): Int {
         var netType = 99
-        val connectionType = NetUtilJava.getConnectionType(context)
-        netType = if (connectionType == NetUtilJava.TYPE_2G) {
+        val connectionType = getConnectionType(context)
+        netType = if (connectionType == TYPE_2G) {
             1
-        } else if (connectionType == NetUtilJava.TYPE_3G) {
+        } else if (connectionType == TYPE_3G) {
             2
-        } else if (connectionType == NetUtilJava.TYPE_4G) {
+        } else if (connectionType == TYPE_4G) {
             3
-        } else if (connectionType == NetUtilJava.TYPE_WIFI) {
+        } else if (connectionType == TYPE_WIFI) {
             4
         } else {
             5

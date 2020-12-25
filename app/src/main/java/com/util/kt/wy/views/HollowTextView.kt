@@ -1,14 +1,14 @@
-package com.dsj.util.views
+package com.util.kt.wy.views
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.*
 import android.os.Build
-import android.support.annotation.RequiresApi
-import android.support.v7.widget.AppCompatTextView
+import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatTextView
 import android.util.AttributeSet
-import com.utilproject.wy.R
+import com.util.kt.wy.R
 import kotlin.math.roundToInt
 
 /**
