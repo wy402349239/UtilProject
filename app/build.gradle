@@ -27,8 +27,8 @@ android {
         userOrg = 'wangyu40234'      //bintray注册的用户名
         groupId = 'maven_wy'         //compile引用时的第1部分groupId
         artifactId = 'utilproject'     //compile引用时的第2部分项目名
-        publishVersion = '1.0.16'    //compile引用时的第3部分版本号
-        desc = 'this is private project'//d项目描述
+        publishVersion = '1.0.17'    //compile引用时的第3部分版本号
+        desc = 'this is public project'//d项目描述
         repoName="maven" //你的仓库名称，没有填写默认仓库是maven//这也是很多人上传仓库不对名问题最多情况，
         website = 'https://github.com/wy402349239/UtilProject' //github 托管地址
         //terminal ./gradlew clean build bintrayUpload -PbintrayUser=wangyu40234 -PbintrayKey=cc090a0aca674dda4f1718c186c90d36652ce057 -PdryRun=false
@@ -42,8 +42,9 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.20"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+    implementation 'com.android.support.constraint:constraint-layout:2.0.2'
 }
 
 configurations.all {

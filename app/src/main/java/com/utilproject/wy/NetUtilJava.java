@@ -21,7 +21,7 @@ import java.util.List;
  * created by wangyu on 2019/4/30
  * description :
  */
-public class NetUtil {
+public class NetUtilJava {
 
     // 下面是联网类型的定义
     public static final byte TYPE_2G = 1;
@@ -356,14 +356,14 @@ public class NetUtil {
      */
     public static String getNetTypeString(Context context) {
         String netType = "unknown";
-        byte connectionType = NetUtil.getConnectionType(context);
-        if (connectionType == NetUtil.TYPE_2G) {
+        byte connectionType = NetUtilJava.getConnectionType(context);
+        if (connectionType == NetUtilJava.TYPE_2G) {
             netType = "2g";
-        } else if (connectionType == NetUtil.TYPE_3G) {
+        } else if (connectionType == NetUtilJava.TYPE_3G) {
             netType = "3g";
-        } else if (connectionType == NetUtil.TYPE_4G) {
+        } else if (connectionType == NetUtilJava.TYPE_4G) {
             netType = "4g";
-        } else if (connectionType == NetUtil.TYPE_WIFI) {
+        } else if (connectionType == NetUtilJava.TYPE_WIFI) {
             netType = "wifi";
         }
 
@@ -377,14 +377,14 @@ public class NetUtil {
      */
     public static int getNetTypeInt(Context context) {
         int netType = 99;
-        byte connectionType = NetUtil.getConnectionType(context);
-        if (connectionType == NetUtil.TYPE_2G) {
+        byte connectionType = NetUtilJava.getConnectionType(context);
+        if (connectionType == NetUtilJava.TYPE_2G) {
             netType = 1;
-        } else if (connectionType == NetUtil.TYPE_3G) {
+        } else if (connectionType == NetUtilJava.TYPE_3G) {
             netType = 2;
-        } else if (connectionType == NetUtil.TYPE_4G) {
+        } else if (connectionType == NetUtilJava.TYPE_4G) {
             netType = 3;
-        } else if (connectionType == NetUtil.TYPE_WIFI) {
+        } else if (connectionType == NetUtilJava.TYPE_WIFI) {
             netType = 4;
         } else {
             netType = 5;

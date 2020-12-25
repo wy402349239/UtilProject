@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * @author jx_wy
  */
-public class DeviceUtil {
+public class DeviceUtilJava {
 
     /**
      * 获取屏幕宽度

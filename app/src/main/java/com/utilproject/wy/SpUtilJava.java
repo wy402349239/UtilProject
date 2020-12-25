@@ -7,21 +7,21 @@ import android.content.SharedPreferences;
  * created by wangyu on 2019/4/11
  * description : SharedPreferences工具类
  */
-public class SpUtil {
+public class SpUtilJava {
 
     private SharedPreferences mSp = null;
     private static final String mName = "GitSp";
-    private static SpUtil mUtil = null;
+    private static SpUtilJava mUtil = null;
 
-    public SpUtil(Context context) {
+    public SpUtilJava(Context context) {
         mSp = context.getSharedPreferences(mName, Context.MODE_PRIVATE);
     }
 
-    public static SpUtil getInstance(Context context) {
+    public static SpUtilJava getInstance(Context context) {
         if (mUtil == null) {
-            synchronized (SpUtil.class) {
+            synchronized (SpUtilJava.class) {
                 if (mUtil == null) {
-                    mUtil = new SpUtil(context);
+                    mUtil = new SpUtilJava(context);
                 }
             }
         }
